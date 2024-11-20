@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Twitch Clone</title>
+    <style>
+        .carousel-item {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            padding: 12px;
+            opacity: 0.8;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(255, 255, 255, 1);
+            opacity: 1;
+        }
+
+        .carousel-item-text {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 16px;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+    <nav class="flex justify-between items-center px-6 py-3 bg-white shadow-md">
+        <div class="flex items-center space-x-4">
+            <img src="download.png" alt="Twitch Logo" class="w-12 h-12">
+            <a href="#" class="text-lg font-semibold hover:text-purple-600">Volgend</a>
+            <a href="#" class="text-lg font-semibold hover:text-purple-600">Bladeren</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-500">Registreren</button>
+            <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Inloggen</button>
+        </div>
+    </nav>
+
+    <div class="flex">
+        <aside class="w-56 bg-gray-200 h-screen p-4 overflow-y-auto">
+            <h2 class="text-lg font-bold mb-4">Aanbevolen kanalen</h2>
+            <ul>
+                <li class="flex items-center p-2 hover:bg-gray-300 rounded">
+                    <a href="https://www.twitch.tv/kaicenat" class="flex items-center w-full">
+                        <img src="1d8cd548-04fa-49fb-bfcd-f222f73482b6-profile_image-50x50.png" alt="Channel 1" class="w-10 h-10 rounded-full mr-3">
+                        <span>KaiCenat</span>
+                        <div class="flex items-center ml-auto">
+                            <div class="w-2.5 h-2.5 bg-red-500 rounded-full mr-1"></div>
+                            <span>9,6K</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="flex items-center p-2 hover:bg-gray-300 rounded">
+                    <a href="https://www.twitch.tv/swagg" class="flex items-center w-full">
+                        <img src="2f7712de-741b-4722-857b-c1604f8c4d01-profile_image-70x70.png" alt="Channel 2" class="w-10 h-10 rounded-full mr-3">
+                        <span>Swagg</span>
+                        <div class="flex items-center ml-auto">
+                            <div class="w-2.5 h-2.5 bg-red-500 rounded-full mr-1"></div>
+                            <span>4,7K</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="flex items-center p-2 hover:bg-gray-300 rounded">
+                    <a href="https://www.twitch.tv/alfie" class="flex items-center w-full">
+                        <img src="c742859238b285fc-profile_image-70x70.png" alt="Channel 3" class="w-10 h-10 rounded-full mr-3">
+                        <span>Alfie</span>
+                        <div class="flex items-center ml-auto">
+                            <div class="w-2.5 h-2.5 bg-red-500 rounded-full mr-1"></div>
+                            <span>1,7K</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="flex-grow p-6">
+            <div class="relative overflow-hidden rounded-lg">
+                <div class="carousel-container" id="carousel">
+                    <div class="carousel-item relative">
+                        <a href="https://www.twitch.tv/kaicenat">
+                            <img src="live_user_kaicenat-440x248.jpg" alt="Slide 1" class="w-full h-64 object-cover">
+                            <div class="carousel-item-text">
+                                <h3 class="text-xl font-bold">KaiCenat</h3>
+                                <p>Live now! Join the fun!</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item relative">
+                        <a href="https://www.twitch.tv/swagg">
+                            <img src="live_user_swagg-440x248.jpg" alt="Slide 2" class="w-full h-64 object-cover">
+                            <div class="carousel-item-text">
+                                <h3 class="text-xl font-bold">Swagg</h3>
+                                <p>Join the action with Swagg!</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="carousel-item relative">
+                        <a href="https://www.twitch.tv/alfie">
+                            <img src="live_user_alfie-440x248.jpg" alt="Slide 3" class="w-full h-64 object-cover">
+                            <div class="carousel-item-text">
+                                <h3 class="text-xl font-bold">Alfie</h3>
+                                <p>Let's play some games together!</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="absolute top-1/2 left-4 transform -translate-y-1/2">
+                    <button class="carousel-button" id="prevSlide">
+                        <svg class="w-6 h-6 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="absolute top-1/2 right-4 transform -translate-y-1/2">
+                    <button class="carousel-button" id="nextSlide">
+                        <svg class="w-6 h-6 text-gray-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1l4 4-4 4" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <section class="mt-10">
+                <h2 class="text-2xl font-bold mb-4">Live kanalen</h2>
+                <div class="grid grid-cols-3 gap-4">
+                    <a href="https://www.twitch.tv/kaicenat" class="bg-white shadow-md rounded-md overflow-hidden">
+                        <img src="live_user_kaicenat-440x248.jpg" alt="Channel 1" class="w-full">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold">KaiCenat</h3>
+                            <p class="text-gray-500">Live now! Join the fun!</p>
+                        </div>
+                    </a>
+                    <a href="https://www.twitch.tv/swagg" class="bg-white shadow-md rounded-md overflow-hidden">
+                        <img src="live_user_swagg-440x248.jpg" alt="Channel 2" class="w-full">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold">Swagg</h3>
+                            <p class="text-gray-500">Join the action with Swagg!</p>
+                        </div>
+                    </a>
+                    <a href="https://www.twitch.tv/alfie" class="bg-white shadow-md rounded-md overflow-hidden">
+                        <img src="live_user_alfie-440x248.jpg" alt="Channel 3" class="w-full">
+                        <div class="p-4">
+                            <h3 class="text-lg font-semibold">Alfie</h3>
+                            <p class="text-gray-500">Let's play some games together!</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const slides = carousel.children;
+        const prevSlide = document.getElementById('prevSlide');
+        const nextSlide = document.getElementById('nextSlide');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        prevSlide.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+
+        nextSlide.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+        });
+
+        updateCarousel();
+    </script>
+</body>
+
+</html>
